@@ -35,18 +35,18 @@ logger = logging.getLogger('root')
 __C = AttrDict()
 config = __C
 
-__C.DATASET = b''
-__C.OUTPUT_DIR = b''
+__C.DATASET = 'vgg'
+__C.OUTPUT_DIR = 'outputs/2305100403'
 __C.GPU_ID = 0
 __C.RNG_SEED = 2
 __C.LOG_PERIOD = 10
-__C.SELF_ATTN = 0
+__C.SELF_ATTN = 1
 
 # Training options
 __C.TRAIN = AttrDict()
 __C.TRAIN.EPOCH = -1
-__C.TRAIN.STEP = 0
-__C.TRAIN.BATCH_SIZE = 64
+__C.TRAIN.STEP =350
+__C.TRAIN.BATCH_SIZE = 75
 # for 3D data
 __C.TRAIN.PATCH_SIZE = 512
 __C.TRAIN.PATCH_DEPTH = 80
