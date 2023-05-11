@@ -28,6 +28,8 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import logging
+import time
+import os
 from utils import AttrDict
 logger = logging.getLogger('root')
 
@@ -36,7 +38,9 @@ __C = AttrDict()
 config = __C
 
 __C.DATASET = 'vgg'
-__C.OUTPUT_DIR = 'outputs/2305100403'
+__C.OUTPUT_DIR = 'outputs/' + str(time.time())
+if not os.path.exists(__C.OUTPUT_DIR):
+    os.mkdir(__C.OUTPUT_DIR)
 __C.GPU_ID = 0
 __C.RNG_SEED = 2
 __C.LOG_PERIOD = 10
@@ -46,7 +50,7 @@ __C.SELF_ATTN = 1
 __C.TRAIN = AttrDict()
 __C.TRAIN.EPOCH = -1
 __C.TRAIN.STEP =350
-__C.TRAIN.BATCH_SIZE = 75
+__C.TRAIN.BATCH_SIZE = 32
 # for 3D data
 __C.TRAIN.PATCH_SIZE = 512
 __C.TRAIN.PATCH_DEPTH = 80
@@ -59,7 +63,7 @@ __C.MODEL.RATIO = {'mbm': 1000, 'dcc': 500,
 
 # Solver
 __C.SOLVER = AttrDict()
-__C.SOLVER.BASE_LR = 1e-3
+__C.SOLVER.BASE_LR = 1e-4
 __C.SOLVER.WEIGHT_DECAY = 1e-3
 __C.SOLVER.RESTART_STEP = 50
 
